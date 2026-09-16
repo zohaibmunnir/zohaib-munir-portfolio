@@ -90,11 +90,11 @@ content:
             required: true
             options:
               values:
-                - { value: logo, label: Logo Design }
-                - { value: social, label: Social Media Design }
-                - { value: listing, label: Listing Images }
-                - { value: aplus, label: Amazon A+ Content }
-                - { value: print, label: Print Media }
+                - { name: logo, label: Logo Design }
+                - { name: social, label: Social Media Design }
+                - { name: listing, label: Listing Images }
+                - { name: aplus, label: Amazon A+ Content }
+                - { name: print, label: Print Media }
           - { name: categoryLabel, label: Detailed Category Name, type: string }
           - { name: subtitle, label: Card Subtitle, type: string }
           - { name: summary, label: Project Description, type: text }
@@ -107,18 +107,18 @@ content:
             type: select
             options:
               values:
-                - { value: urban, label: Urban Crest }
-                - { value: zyro, label: Zyro Wear }
-                - { value: iron, label: Iron Pulse }
-                - { value: social, label: Social Campaign }
-                - { value: thumbnail, label: Thumbnail }
-                - { value: listing, label: Listing Image }
-                - { value: aplus, label: Amazon A+ }
-                - { value: print, label: Print Media }
+                - { name: urban, label: Urban Crest }
+                - { name: zyro, label: Zyro Wear }
+                - { name: iron, label: Iron Pulse }
+                - { name: social, label: Social Campaign }
+                - { name: thumbnail, label: Thumbnail }
+                - { name: listing, label: Listing Image }
+                - { name: aplus, label: Amazon A+ }
+                - { name: print, label: Print Media }
 
 settings:
   content:
-    merge: direct
+    merge: true
   commit:
     templates:
       create: "Add {name}"
