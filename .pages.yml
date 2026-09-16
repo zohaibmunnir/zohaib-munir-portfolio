@@ -1,0 +1,126 @@
+media:
+  input: media
+  output: media
+  rename: safe
+  categories: [image]
+
+content:
+  - name: portfolio
+    label: Portfolio Website Editor
+    type: file
+    path: content.json
+    fields:
+      - name: site
+        label: Website Identity & Colors
+        type: object
+        fields:
+          - { name: name, label: Your Name, type: string, required: true }
+          - { name: monogram, label: Initials / Monogram, type: string, required: true }
+          - { name: role, label: Professional Role, type: string, required: true }
+          - { name: location, label: Location, type: string }
+          - { name: pageTitle, label: Browser Page Title, type: string, required: true }
+          - { name: metaDescription, label: Google Search Description, type: text }
+          - { name: paperColor, label: Light Background Color, type: string, description: "Hex color, for example #f2f0e9" }
+          - { name: darkColor, label: Dark Background Color, type: string, description: "Hex color, for example #11110f" }
+          - { name: primaryColor, label: Main Highlight Color, type: string, description: "Hex color, for example #d9ff4f" }
+          - { name: accentColor, label: Secondary Highlight Color, type: string, description: "Hex color, for example #ff5d32" }
+
+      - name: hero
+        label: Landing Section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small Top Line, type: string }
+          - { name: title, label: Main Heading, type: string, required: true }
+          - { name: highlight, label: Highlighted Heading, type: string, required: true }
+          - { name: intro, label: Introduction, type: text, required: true }
+          - { name: primaryAction, label: Main Button Text, type: string }
+          - { name: disciplines, label: Disciplines List, type: text, description: "Write each discipline on a new line." }
+
+      - name: work
+        label: Work Section Introduction
+        type: object
+        fields:
+          - { name: title, label: Section Heading, type: text }
+          - { name: note, label: Section Note, type: text }
+
+      - name: about
+        label: About Section
+        type: object
+        fields:
+          - { name: title, label: About Heading, type: text }
+          - { name: lead, label: Main About Paragraph, type: text }
+          - { name: body, label: Additional About Paragraph, type: text }
+
+      - name: services
+        label: Services
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Service Name, type: string, required: true }
+          - { name: description, label: Service Description, type: text, required: true }
+
+      - name: contact
+        label: Contact Section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small Top Line, type: string }
+          - { name: title, label: Main Heading, type: string }
+          - { name: highlight, label: Highlighted Heading, type: string }
+          - { name: note, label: Contact Note, type: text }
+          - { name: buttonLabel, label: Contact Button Text, type: string }
+          - { name: email, label: Contact Email, type: string, description: "Leave blank if you prefer WhatsApp." }
+          - { name: whatsappUrl, label: Full WhatsApp Link, type: string, description: "Example: https://wa.me/923001234567" }
+
+      - name: projects
+        label: Portfolio Projects
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} — {categoryLabel}"
+        fields:
+          - { name: id, label: Project ID, type: string, required: true, description: "Use lowercase letters and hyphens only." }
+          - { name: title, label: Project Name, type: string, required: true }
+          - name: category
+            label: Filter Category
+            type: select
+            required: true
+            options:
+              values:
+                - { value: logo, label: Logo Design }
+                - { value: social, label: Social Media Design }
+                - { value: listing, label: Listing Images }
+                - { value: aplus, label: Amazon A+ Content }
+                - { value: print, label: Print Media }
+          - { name: categoryLabel, label: Detailed Category Name, type: string }
+          - { name: subtitle, label: Card Subtitle, type: string }
+          - { name: summary, label: Project Description, type: text }
+          - { name: scope, label: Work Scope, type: text }
+          - { name: status, label: Project Status, type: string }
+          - { name: note, label: Additional Note, type: text }
+          - { name: image, label: Final Project Image, type: image, required: false, description: "Upload a finished cover image. Leave blank to use the designed placeholder." }
+          - name: visualStyle
+            label: Placeholder Design Style
+            type: select
+            options:
+              values:
+                - { value: urban, label: Urban Crest }
+                - { value: zyro, label: Zyro Wear }
+                - { value: iron, label: Iron Pulse }
+                - { value: social, label: Social Campaign }
+                - { value: thumbnail, label: Thumbnail }
+                - { value: listing, label: Listing Image }
+                - { value: aplus, label: Amazon A+ }
+                - { value: print, label: Print Media }
+
+settings:
+  content:
+    merge: direct
+  commit:
+    templates:
+      create: "Add {name}"
+      update: "Update portfolio content"
+      delete: "Remove {name}"
