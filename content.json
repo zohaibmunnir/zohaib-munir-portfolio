@@ -1,0 +1,153 @@
+{
+  "site": {
+    "name": "Zohaib Munir",
+    "monogram": "ZM",
+    "role": "Graphic designer",
+    "location": "Gojra, Pakistan",
+    "pageTitle": "Zohaib Munir — Graphic Designer",
+    "metaDescription": "Zohaib Munir is a graphic designer specializing in logo design, social media design, listing images, Amazon A+ content, and print media.",
+    "paperColor": "#f2f0e9",
+    "darkColor": "#11110f",
+    "primaryColor": "#d9ff4f",
+    "accentColor": "#ff5d32"
+  },
+  "hero": {
+    "eyebrow": "Graphic designer · Gojra, Pakistan",
+    "title": "Design that looks clear.",
+    "highlight": "Works even harder.",
+    "intro": "I build purposeful visual identities and conversion-focused creative for brands, products, and digital platforms.",
+    "primaryAction": "Start a project",
+    "disciplines": "Brand identity\nDigital creative\nCommerce design"
+  },
+  "work": {
+    "title": "Five ways I help\nbrands show up better.",
+    "note": "A focused view of my core services. Final artwork can be added from the editing dashboard."
+  },
+  "about": {
+    "title": "Thoughtful design,\nmade to communicate.",
+    "lead": "I’m Zohaib Munir, a graphic designer focused on clean brand identities and visual content that helps products and businesses feel clear, credible, and memorable.",
+    "body": "My work spans brand marks, social content, e-commerce visuals, Amazon A+ modules, and print. I care about the idea behind the design, the details that make it feel professional, and the real context where people will see it."
+  },
+  "services": [
+    { "title": "Logo Design", "description": "Distinct, usable brand marks and identity direction." },
+    { "title": "Social Media Design", "description": "Posts, campaigns, thumbnails, and content systems." },
+    { "title": "Listing Images", "description": "Product visuals built for clarity and conversion." },
+    { "title": "Amazon A+ Content", "description": "Structured brand storytelling for product pages." },
+    { "title": "Print Media", "description": "Professional collateral prepared for production." }
+  ],
+  "contact": {
+    "eyebrow": "Have a project in mind?",
+    "title": "Let’s make it",
+    "highlight": "worth noticing.",
+    "note": "Add your preferred email or WhatsApp link from the editing dashboard.",
+    "buttonLabel": "Copy project brief",
+    "email": "",
+    "whatsappUrl": ""
+  },
+  "projects": [
+    {
+      "id": "urban-crest",
+      "title": "Urban Crest",
+      "category": "logo",
+      "categoryLabel": "Logo Design · Real Estate",
+      "subtitle": "Logo Design · Real Estate",
+      "summary": "A professional real-estate identity direction designed to bring the building form and wordmark together as one confident mark.",
+      "scope": "Logo concept · Wordmark direction · Brand application",
+      "status": "Concept selected · Final portfolio artwork to add",
+      "note": "Replace the website preview with the final Urban Crest artwork when ready.",
+      "image": "",
+      "visualStyle": "urban"
+    },
+    {
+      "id": "zyro-wear",
+      "title": "Zyro Wear",
+      "category": "logo",
+      "categoryLabel": "Logo Design · Streetwear",
+      "subtitle": "Logo Design · Streetwear",
+      "summary": "A modern clothing-brand direction balancing bold streetwear character with a clean, professional identity system.",
+      "scope": "Logo concept · Typography · Streetwear identity",
+      "status": "In development · Final artwork to add",
+      "note": "Replace this typographic preview with approved Zyro Wear logo applications when ready.",
+      "image": "",
+      "visualStyle": "zyro"
+    },
+    {
+      "id": "iron-pulse",
+      "title": "Iron Pulse",
+      "category": "logo",
+      "categoryLabel": "Logo Design · Fitness",
+      "subtitle": "Logo Design · Fitness",
+      "summary": "A focused fitness identity direction built to communicate strength, energy, and forward movement without unnecessary complexity.",
+      "scope": "Logo concept · Fitness identity · Application direction",
+      "status": "In development · Final artwork to add",
+      "note": "Replace the temporary composition with the final Iron Pulse identity.",
+      "image": "",
+      "visualStyle": "iron"
+    },
+    {
+      "id": "social-system",
+      "title": "Social Campaign System",
+      "category": "social",
+      "categoryLabel": "Social Media Design",
+      "subtitle": "Social Media Design · Placeholder",
+      "summary": "A reserved case-study slot for a coordinated set of campaign posts, stories, or promotional creatives.",
+      "scope": "Post design · Story formats · Campaign consistency",
+      "status": "Placeholder · Select final project",
+      "note": "Add a real campaign here with its goal, formats, and finished visuals.",
+      "image": "",
+      "visualStyle": "social"
+    },
+    {
+      "id": "thumbnails",
+      "title": "High-Impact Thumbnail Series",
+      "category": "social",
+      "categoryLabel": "Social Media Design · Thumbnails",
+      "subtitle": "Social Media Design · Placeholder",
+      "summary": "A portfolio slot for thumbnail work that demonstrates strong hierarchy, clear storytelling, and attention-grabbing composition.",
+      "scope": "YouTube thumbnails · Visual hierarchy · Concept variations",
+      "status": "Placeholder · Add selected artwork",
+      "note": "Replace the preview frames with your strongest thumbnail designs.",
+      "image": "",
+      "visualStyle": "thumbnail"
+    },
+    {
+      "id": "listing-images",
+      "title": "Amazon Product Image Set",
+      "category": "listing",
+      "categoryLabel": "Listing Images",
+      "subtitle": "Listing Images · Placeholder",
+      "summary": "A structured listing-image direction that makes product features easy to understand while keeping the product visually central.",
+      "scope": "Hero image support · Feature graphics · Comparison layout",
+      "status": "Placeholder · Product and artwork to add",
+      "note": "Add real, authorized product imagery and final listing designs here.",
+      "image": "",
+      "visualStyle": "listing"
+    },
+    {
+      "id": "hair-oil",
+      "title": "Hair Oil A+ Content",
+      "category": "aplus",
+      "categoryLabel": "Amazon A+ Content",
+      "subtitle": "Amazon A+ · Artwork to add",
+      "summary": "A reserved case-study page for the hair-oil A+ project, ready for final modules, product details, and design rationale.",
+      "scope": "A+ modules · Product storytelling · Visual hierarchy",
+      "status": "Project identified · Final artwork to add",
+      "note": "Replace the botanical preview with the finished A+ modules.",
+      "image": "",
+      "visualStyle": "aplus"
+    },
+    {
+      "id": "print-suite",
+      "title": "Print Collateral Suite",
+      "category": "print",
+      "categoryLabel": "Print Media",
+      "subtitle": "Print Media · Placeholder",
+      "summary": "A portfolio slot for coordinated print applications that demonstrate hierarchy, production awareness, and brand consistency.",
+      "scope": "Business card · Poster · Brochure or stationery",
+      "status": "Placeholder · Select final project",
+      "note": "Replace the abstract mockups with finished print work.",
+      "image": "",
+      "visualStyle": "print"
+    }
+  ]
+}
