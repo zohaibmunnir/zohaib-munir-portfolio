@@ -121,6 +121,8 @@ function applyContent(data) {
   setText("[data-contact-phone]", contact.phone);
   setText("[data-contact-email]", contact.email);
   setText("[data-contact-location]", contact.location);
+  setText("[data-contact-whatsapp-label]", contact.whatsappLabel || "Message directly ↗");
+  setText("[data-contact-linkedin-label]", contact.linkedinLabel || "LinkedIn profile ↗");
   document.querySelector("[data-contact-phone-link]")?.setAttribute("href", contact.phoneUrl || `tel:${String(contact.phone || "").replace(/\s/g, "")}`);
   document.querySelector("[data-contact-whatsapp-link]")?.setAttribute("href", contact.whatsappUrl || "#contact");
   document.querySelector("[data-contact-email-link]")?.setAttribute("href", contact.email ? `mailto:${contact.email}` : "#contact");
