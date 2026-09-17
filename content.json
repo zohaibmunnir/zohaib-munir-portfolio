@@ -7,9 +7,18 @@
     "pageTitle": "Zohaib Munir — Graphic Designer",
     "metaDescription": "Zohaib Munir is a graphic designer specializing in logo design, social media design, listing images, Amazon A+ content, and print media.",
     "paperColor": "#f2f0e9",
+    "softPaperColor": "#e8e5dc",
     "darkColor": "#11110f",
     "primaryColor": "#d9ff4f",
-    "accentColor": "#ff5d32"
+    "accentColor": "#ff5d32",
+    "secondaryColor": "#5276ff",
+    "mutedColor": "#a7a59e",
+    "fontFamily": "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+    "accentFontFamily": "Georgia, serif",
+    "baseFontSize": 16,
+    "heroBackgroundImage": "",
+    "workBackgroundImage": "",
+    "profileBackgroundImage": ""
   },
   "hero": {
     "eyebrow": "Graphic designer · Gojra, Pakistan",
@@ -17,6 +26,9 @@
     "highlight": "Works even harder.",
     "intro": "I build purposeful visual identities and conversion-focused creative for brands, products, and digital platforms.",
     "primaryAction": "Start a project",
+    "primaryActionUrl": "#contact",
+    "secondaryAction": "Explore selected work",
+    "secondaryActionUrl": "#work",
     "disciplines": "Brand identity\nDigital creative\nCommerce design"
   },
   "work": {
@@ -43,6 +55,10 @@
     "buttonLabel": "Copy project brief",
     "email": "",
     "whatsappUrl": ""
+  },
+  "editorStyles": {
+    "elements": {},
+    "sections": {}
   },
   "projects": [
     {
