@@ -66,17 +66,13 @@
     "eyebrow": "Have a project in mind?",
     "title": "Let’s make it",
     "highlight": "worth noticing.",
-    "note": "https://wa.me/923016940573",
-    "buttonLabel": "Contact Me on WhatsApp",
+    "note": "Contact Me on WhatsApp",
+    "buttonLabel": "https://wa.me/923016940573",
     "email": "",
     "whatsappUrl": ""
   },
   "editorStyles": {
-    "elements": {
-      "contact.note": {
-        "fontSize": "16px"
-      }
-    },
+    "elements": {},
     "sections": {}
   },
   "projects": [
