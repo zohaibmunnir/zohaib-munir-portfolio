@@ -34,15 +34,54 @@ function setHtml(selector, value) {
   document.querySelectorAll(selector).forEach((node) => { node.innerHTML = withBreaks(value); });
 }
 
+function setSectionBackground(selector, imagePath) {
+  const section = document.querySelector(selector);
+  if (!section) return;
+  if (!imagePath) {
+    section.style.removeProperty("background-image");
+    section.style.removeProperty("background-size");
+    section.style.removeProperty("background-position");
+    return;
+  }
+  const safePath = String(imagePath).replaceAll("\\", "\\\\").replaceAll('"', '\\"');
+  section.style.backgroundImage = `url("${safePath}")`;
+  section.style.backgroundSize = "cover";
+  section.style.backgroundPosition = "center";
+}
+
+function setEditPath(selector, path) {
+  document.querySelectorAll(selector).forEach((node) => {
+    node.dataset.editPath = path;
+  });
+}
+
+function applyEditorStyles(editorStyles = {}) {
+  Object.entries(editorStyles.elements || {}).forEach(([path, styles]) => {
+    document.querySelectorAll(`[data-edit-path="${CSS.escape(path)}"]`).forEach((node) => Object.assign(node.style, styles));
+  });
+  Object.entries(editorStyles.sections || {}).forEach(([key, styles]) => {
+    document.querySelectorAll(`[data-editor-section="${CSS.escape(key)}"]`).forEach((node) => Object.assign(node.style, styles));
+  });
+}
+
 function applyContent(data) {
   const { site, hero, work, about, services, contact, projects } = data;
   document.title = site.pageTitle;
   document.querySelector("[data-meta-description]")?.setAttribute("content", site.metaDescription);
   document.documentElement.style.setProperty("--paper", site.paperColor);
+  document.documentElement.style.setProperty("--paper-soft", site.softPaperColor || "#e8e5dc");
   document.documentElement.style.setProperty("--ink", site.darkColor);
   document.documentElement.style.setProperty("--acid", site.primaryColor);
   document.documentElement.style.setProperty("--orange", site.accentColor);
+  document.documentElement.style.setProperty("--blue", site.secondaryColor || "#5276ff");
+  document.documentElement.style.setProperty("--muted", site.mutedColor || "#a7a59e");
+  document.documentElement.style.setProperty("--body-font", site.fontFamily || 'Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif');
+  document.documentElement.style.setProperty("--accent-font", site.accentFontFamily || "Georgia, serif");
+  document.documentElement.style.fontSize = `${Number(site.baseFontSize) || 16}px`;
   document.querySelector('meta[name="theme-color"]')?.setAttribute("content", site.darkColor);
+  setSectionBackground(".hero", site.heroBackgroundImage);
+  setSectionBackground(".work-section", site.workBackgroundImage);
+  setSectionBackground(".profile-section", site.profileBackgroundImage);
 
   setText("[data-site-name]", site.name);
   setText("[data-monogram]", site.monogram);
@@ -53,20 +92,23 @@ function applyContent(data) {
   setText("[data-hero-highlight]", hero.highlight);
   setText("[data-hero-intro]", hero.intro);
   setText("[data-primary-action]", hero.primaryAction);
-  setHtml("[data-hero-disciplines]", hero.disciplines);
+  document.querySelector("[data-primary-action]")?.closest("a")?.setAttribute("href", hero.primaryActionUrl || "#contact");
+  setText("[data-secondary-action]", hero.secondaryAction || "Explore selected work");
+  document.querySelector("[data-secondary-action]")?.closest("a")?.setAttribute("href", hero.secondaryActionUrl || "#work");
+  setText("[data-hero-disciplines]", hero.disciplines);
   const monogram = [...site.monogram];
   setText("[data-monogram-first]", monogram[0] || "Z");
   setText("[data-monogram-last]", monogram.slice(1).join("") || "M");
 
-  setHtml("[data-work-title]", work.title);
+  setText("[data-work-title]", work.title);
   setText("[data-work-note]", work.note);
-  setHtml("[data-about-title]", about.title);
+  setText("[data-about-title]", about.title);
   setText("[data-about-lead]", about.lead);
   setText("[data-about-body]", about.body);
 
   const serviceList = document.querySelector("[data-service-list]");
   serviceList.innerHTML = services.map((service, index) => `
-    <li><span>${String(index + 1).padStart(2, "0")}</span><div><strong>${escapeHtml(service.title)}</strong><small>${escapeHtml(service.description)}</small></div></li>
+    <li data-editor-service-index="${index}"><span>${String(index + 1).padStart(2, "0")}</span><div><strong data-edit-path="services.${index}.title">${escapeHtml(service.title)}</strong><small data-edit-path="services.${index}.description">${escapeHtml(service.description)}</small></div></li>
   `).join("");
 
   setText("[data-contact-eyebrow]", contact.eyebrow);
@@ -78,6 +120,7 @@ function applyContent(data) {
   renderFilters(projects);
   renderProjects(projects);
   configureContact(contact);
+  applyEditorStyles(data.editorStyles);
   observeReveals();
 }
 
@@ -109,16 +152,16 @@ function renderFilters(projects) {
 
 function renderProjects(projects) {
   const grid = document.querySelector("[data-project-grid]");
-  grid.innerHTML = projects.map((project) => {
+  grid.innerHTML = projects.map((project, projectIndex) => {
     const style = placeholderMarkup[project.visualStyle] ? project.visualStyle : "urban";
     const visual = project.image
-      ? `<img class="project-image" src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title)} project artwork" loading="lazy">`
+      ? `<img class="project-image" data-editor-image-path="projects.${projectIndex}.image" src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title)} project artwork" loading="lazy">`
       : placeholderMarkup[style];
     return `
-      <article class="project-card reveal" data-category="${escapeHtml(project.category)}">
+      <article class="project-card reveal" data-category="${escapeHtml(project.category)}" data-editor-project-index="${projectIndex}">
         <button class="project-open" type="button" data-project-id="${escapeHtml(project.id)}" aria-label="Open ${escapeHtml(project.title)} project details">
           <div class="project-visual visual-${style}${project.image ? " has-image" : ""}">${visual}</div>
-          <div class="project-meta"><div><p>${escapeHtml(project.title)}</p><span>${escapeHtml(project.subtitle)}</span></div><span class="project-arrow">↗</span></div>
+          <div class="project-meta"><div><p data-edit-path="projects.${projectIndex}.title">${escapeHtml(project.title)}</p><span data-edit-path="projects.${projectIndex}.subtitle">${escapeHtml(project.subtitle)}</span></div><span class="project-arrow">↗</span></div>
         </button>
       </article>`;
   }).join("");
@@ -127,7 +170,8 @@ function renderProjects(projects) {
   let lastTrigger = null;
   grid.querySelectorAll("[data-project-id]").forEach((button) => {
     button.addEventListener("click", () => {
-      const project = projects.find((item) => item.id === button.dataset.projectId);
+      const projectIndex = projects.findIndex((item) => item.id === button.dataset.projectId);
+      const project = projects[projectIndex];
       if (!project) return;
       lastTrigger = button;
       dialog.querySelector("[data-dialog-category]").textContent = project.categoryLabel;
@@ -136,6 +180,13 @@ function renderProjects(projects) {
       dialog.querySelector("[data-dialog-scope]").textContent = project.scope;
       dialog.querySelector("[data-dialog-status]").textContent = project.status;
       dialog.querySelector("[data-dialog-note]").textContent = project.note;
+      const projectPath = `projects.${projectIndex}`;
+      setEditPath("[data-dialog-category]", `${projectPath}.categoryLabel`);
+      setEditPath("[data-dialog-title]", `${projectPath}.title`);
+      setEditPath("[data-dialog-summary]", `${projectPath}.summary`);
+      setEditPath("[data-dialog-scope]", `${projectPath}.scope`);
+      setEditPath("[data-dialog-status]", `${projectPath}.status`);
+      setEditPath("[data-dialog-note]", `${projectPath}.note`);
       dialog.showModal();
       document.body.classList.add("dialog-open");
     });
@@ -155,6 +206,9 @@ function renderProjects(projects) {
 function configureContact(contact) {
   const button = document.querySelector("[data-contact-button]");
   const status = document.querySelector(".copy-status");
+  button.onclick = null;
+  button.removeAttribute("target");
+  button.removeAttribute("rel");
   if (contact.email) {
     button.href = `mailto:${contact.email}`;
     return;
@@ -166,7 +220,7 @@ function configureContact(contact) {
     return;
   }
   button.href = "#contact";
-  button.addEventListener("click", async (event) => {
+  button.onclick = async (event) => {
     event.preventDefault();
     const brief = "Hello Zohaib, I’d like to discuss a design project.\n\nProject type:\nBusiness or brand:\nWhat I need designed:\nPreferred timeline:\nBudget range:\nReferences or notes:";
     try {
@@ -175,7 +229,7 @@ function configureContact(contact) {
     } catch {
       status.textContent = "Copy unavailable. Please add an email or WhatsApp link in the editor.";
     }
-  });
+  };
 }
 
 function observeReveals() {
