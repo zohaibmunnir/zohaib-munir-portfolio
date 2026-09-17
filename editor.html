@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Zohaib Munir — Visual Editor</title>
+  <link rel="stylesheet" href="editor.css">
+  <script src="editor.js" defer></script>
+</head>
+<body>
+  <header class="toolbar">
+    <div><strong>ZM Visual Editor</strong><span class="status" data-status>Not connected</span></div>
+    <nav>
+      <button type="button" data-add-project>+ Project</button>
+      <button type="button" data-add-service>+ Service</button>
+      <button type="button" data-undo disabled>Undo</button>
+      <a href="./" target="_blank" rel="noopener">View live site ↗</a>
+      <button class="save" type="button" data-save disabled>Save &amp; publish</button>
+      <button type="button" data-logout hidden>Log out</button>
+    </nav>
+  </header>
+
+  <main class="workspace">
+    <section class="preview-wrap" aria-label="Website preview">
+      <iframe title="Editable website preview" src="index.html?editor-preview=1" data-preview></iframe>
+    </section>
+    <aside class="panel" data-panel>
+      <h1>Click anything to edit</h1>
+      <p>Click text in the preview and type. Click a project, image, or section background for more controls.</p>
+      <div class="global-settings">
+        <h2>Whole website style</h2>
+        <label>Body font
+          <select data-global="site.fontFamily">
+            <option value='Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'>Inter / clean sans</option>
+            <option value='Arial, Helvetica, sans-serif'>Arial</option>
+            <option value='"Trebuchet MS", sans-serif'>Trebuchet</option>
+            <option value='Georgia, serif'>Georgia</option>
+          </select>
+        </label>
+        <label>Accent font
+          <select data-global="site.accentFontFamily">
+            <option value="Georgia, serif">Georgia</option>
+            <option value='Inter, ui-sans-serif, sans-serif'>Inter</option>
+            <option value='"Times New Roman", serif'>Times New Roman</option>
+          </select>
+        </label>
+        <label>Base font size <input type="number" min="12" max="24" data-global="site.baseFontSize"></label>
+        <div class="colors">
+          <label>Main background <input type="color" data-global="site.paperColor"></label>
+          <label>Dark color <input type="color" data-global="site.darkColor"></label>
+          <label>Highlight <input type="color" data-global="site.primaryColor"></label>
+          <label>Accent <input type="color" data-global="site.accentColor"></label>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="login" data-login>
+    <form data-login-form>
+      <span class="logo">ZM</span>
+      <h1>Open your visual editor</h1>
+      <p>This free editor saves directly to your own GitHub repository. Your token stays only in this browser and is never added to the website.</p>
+      <label>GitHub access token
+        <input type="password" autocomplete="off" required data-token placeholder="github_pat_…">
+      </label>
+      <label class="remember"><input type="checkbox" data-remember checked> Keep me logged in on this device</label>
+      <button type="submit">Connect my website</button>
+      <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a free GitHub token ↗</a>
+      <details><summary>Token settings (one-time)</summary><p>Choose owner <b>zohaibmunnir</b>, select only <b>zohaib-munir-portfolio</b>, and give <b>Contents: Read and write</b> permission. GitHub does not require a card.</p></details>
+      <p class="login-error" data-login-error role="alert"></p>
+    </form>
+  </div>
+  <input type="file" accept="image/*" hidden data-file-input>
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>
