@@ -108,6 +108,10 @@ a { color: inherit; text-decoration: none; }
 }
 .filter-button span { color: #85837c; font-size: .62rem; }
 .filter-button:hover, .filter-button:focus-visible, .filter-button.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.category-summary { display:flex; align-items:center; justify-content:space-between; gap:2rem; margin:-.5rem 0 2rem; padding:1rem 1.15rem; border:1px solid var(--line); border-radius:var(--radius); }
+.category-summary[hidden] { display:none; }
+.category-summary p { max-width:48rem; margin:0; color:#65635d; font-size:.82rem; }
+.category-summary a { flex:0 0 auto; border-bottom:1px solid currentColor; font-size:.72rem; font-weight:700; }
 .project-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3.5rem 1.25rem; }
 .project-card { grid-column: span 6; min-width: 0; }
 .project-card:nth-child(3n) { grid-column: span 12; }
@@ -188,6 +192,11 @@ a { color: inherit; text-decoration: none; }
 .contact-action p { max-width: 25rem; margin: 0 0 1.5rem; font-size: .9rem; }
 .button-light { background: var(--ink); color: var(--paper); width: min(100%, 18rem); }
 .copy-status { display: block; min-height: 1.2rem; margin: .6rem 0 0 .8rem; font-size: .7rem; }
+.contact-links { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid rgba(17,17,15,.25); margin-top: 1rem; }
+.contact-links a { min-width: 0; padding: 1.15rem 1rem 0 0; }
+.contact-links span { display: block; margin-bottom: .35rem; text-transform: uppercase; letter-spacing: .13em; font-size: .57rem; opacity: .65; }
+.contact-links strong { display: block; overflow-wrap: anywhere; font-size: .78rem; line-height: 1.35; }
+.contact-links a:hover strong, .contact-links a:focus-visible strong { text-decoration: underline; text-underline-offset: .22em; }
 .noscript { position: fixed; inset: auto 1rem 1rem; z-index: 100; margin: 0; padding: 1rem; color: var(--paper); background: var(--ink); border-radius: .75rem; }
 .content-error::before { content: "Portfolio content could not load. Please refresh the page."; position: fixed; z-index: 100; left: 50%; bottom: 1rem; transform: translateX(-50%); width: min(32rem, calc(100% - 2rem)); padding: 1rem; border-radius: .75rem; color: var(--ink); background: var(--acid); text-align: center; font-size: .8rem; font-weight: 700; }
 footer { display: grid; grid-template-columns: 1fr auto auto; gap: 2rem; align-items: center; padding-top: 4rem; color: #77766f; font-size: .68rem; }
@@ -220,10 +229,11 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 2rem; align-i
   .hero { grid-template-columns: 1fr; grid-template-rows: auto auto auto; padding-top: 8rem; }
   .hero-art { width: min(75vw, 24rem); justify-self: center; }.hero-footer { grid-column: 1; }
   .section-heading { display: block; }.section-note { margin-top: 2rem; }
+  .category-summary { display:block; }.category-summary a { display:inline-block; margin-top:1rem; }
   .project-card, .project-card:nth-child(3n) { grid-column: span 12; }.project-visual, .project-card:nth-child(3n) .project-visual { min-height: clamp(19rem, 82vw, 32rem); }
   .about-block { grid-template-columns: 1fr; }.about-block h2, .about-lead, .about-body { grid-column: 1; }.about-lead, .about-body { margin-top: 1rem; }
   .services-block { grid-template-columns: 1fr; }.service-list div { display: block; }.service-list small { display: block; margin-top: .45rem; }
-  .contact-block { grid-template-columns: 1fr; } footer { grid-template-columns: 1fr; gap: .8rem; }
+  .contact-block { grid-template-columns: 1fr; }.contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } footer { grid-template-columns: 1fr; gap: .8rem; }
 }
 
 @media (max-width: 520px) {
@@ -235,6 +245,7 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 2rem; align-i
   .visual-listing { padding: 5%; }.feature-copy { width: 52%; }.feature-copy small { font-size: .55rem; }
   .print-card { width: 32%; }.card-one strong { font-size: 1.4rem; }.card-two strong { font-size: 2rem; }
   .dialog-columns { grid-template-columns: 1fr; }
+  .contact-links { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

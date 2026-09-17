@@ -1,9 +1,9 @@
 const categoryLabels = {
-  logo: "Logo Design",
-  social: "Social Media",
+  logo: "Branding / Logo Design",
+  social: "Social Media Design",
   listing: "Listing Images",
-  aplus: "Amazon A+",
-  print: "Print Media"
+  aplus: "Amazon A+ Content",
+  print: "Print Design"
 };
 
 const placeholderMarkup = {
@@ -65,9 +65,11 @@ function applyEditorStyles(editorStyles = {}) {
 }
 
 function applyContent(data) {
-  const { site, hero, work, about, services, contact, projects } = data;
+  const { site, hero, work, about, services, contact, projects, categories = [] } = data;
   document.title = site.pageTitle;
   document.querySelector("[data-meta-description]")?.setAttribute("content", site.metaDescription);
+  document.querySelector("[data-og-title]")?.setAttribute("content", site.pageTitle);
+  document.querySelector("[data-og-description]")?.setAttribute("content", site.metaDescription);
   document.documentElement.style.setProperty("--paper", site.paperColor);
   document.documentElement.style.setProperty("--paper-soft", site.softPaperColor || "#e8e5dc");
   document.documentElement.style.setProperty("--ink", site.darkColor);
@@ -116,23 +118,32 @@ function applyContent(data) {
   setText("[data-contact-highlight]", contact.highlight);
   setText("[data-contact-note]", contact.note);
   setText("[data-contact-button-label]", contact.buttonLabel);
+  setText("[data-contact-phone]", contact.phone);
+  setText("[data-contact-email]", contact.email);
+  setText("[data-contact-location]", contact.location);
+  document.querySelector("[data-contact-phone-link]")?.setAttribute("href", contact.phoneUrl || `tel:${String(contact.phone || "").replace(/\s/g, "")}`);
+  document.querySelector("[data-contact-whatsapp-link]")?.setAttribute("href", contact.whatsappUrl || "#contact");
+  document.querySelector("[data-contact-email-link]")?.setAttribute("href", contact.email ? `mailto:${contact.email}` : "#contact");
+  document.querySelector("[data-contact-linkedin-link]")?.setAttribute("href", contact.linkedinUrl || "#contact");
+  document.querySelector("[data-contact-location-link]")?.setAttribute("href", contact.locationUrl || "#contact");
 
-  renderFilters(projects);
+  renderFilters(projects, categories);
   renderProjects(projects);
   configureContact(contact);
   applyEditorStyles(data.editorStyles);
   observeReveals();
 }
 
-function renderFilters(projects) {
+function renderFilters(projects, categories = []) {
   const counts = projects.reduce((result, project) => {
     result[project.category] = (result[project.category] || 0) + 1;
     return result;
   }, {});
   const filterBar = document.querySelector("[data-filter-bar]");
+  const categorySummary = document.querySelector("[data-category-summary]");
   filterBar.innerHTML = [
     `<button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span>${String(projects.length).padStart(2, "0")}</span></button>`,
-    ...Object.entries(categoryLabels).map(([key, label]) => `<button class="filter-button" type="button" data-filter="${key}" aria-pressed="false">${label} <span>${String(counts[key] || 0).padStart(2, "0")}</span></button>`)
+    ...(categories.length ? categories.map((category, index) => `<button class="filter-button" type="button" data-filter="${escapeHtml(category.id)}" data-editor-category-index="${index}" aria-pressed="false">${escapeHtml(category.label)} <span>${String(counts[category.id] || 0).padStart(2, "0")}</span></button>`) : Object.entries(categoryLabels).map(([key, label]) => `<button class="filter-button" type="button" data-filter="${key}" aria-pressed="false">${label} <span>${String(counts[key] || 0).padStart(2, "0")}</span></button>`))
   ].join("");
 
   filterBar.querySelectorAll("[data-filter]").forEach((button) => {
@@ -146,6 +157,15 @@ function renderFilters(projects) {
       document.querySelectorAll("[data-category]").forEach((card) => {
         card.hidden = category !== "all" && card.dataset.category !== category;
       });
+      const categoryIndex = categories.findIndex((item) => item.id === category);
+      const categoryData = categories[categoryIndex];
+      if (!categoryData) {
+        categorySummary.hidden = true;
+        categorySummary.innerHTML = "";
+      } else {
+        categorySummary.hidden = false;
+        categorySummary.innerHTML = `<p data-edit-path="categories.${categoryIndex}.description">${escapeHtml(categoryData.description)}</p><a href="category.html?category=${encodeURIComponent(categoryData.id)}">Open ${escapeHtml(categoryData.label)} category ↗</a>`;
+      }
     });
   });
 }
@@ -155,52 +175,16 @@ function renderProjects(projects) {
   grid.innerHTML = projects.map((project, projectIndex) => {
     const style = placeholderMarkup[project.visualStyle] ? project.visualStyle : "urban";
     const visual = project.image
-      ? `<img class="project-image" data-editor-image-path="projects.${projectIndex}.image" src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title)} project artwork" loading="lazy">`
+      ? `<img class="project-image" data-editor-image-path="projects.${projectIndex}.image" src="${escapeHtml(project.image)}" alt="${escapeHtml(project.coverAlt || `${project.title} project artwork`)}" loading="lazy" decoding="async">`
       : placeholderMarkup[style];
     return `
       <article class="project-card reveal" data-category="${escapeHtml(project.category)}" data-editor-project-index="${projectIndex}">
-        <button class="project-open" type="button" data-project-id="${escapeHtml(project.id)}" aria-label="Open ${escapeHtml(project.title)} project details">
+        <a class="project-open" href="project.html?id=${encodeURIComponent(project.id)}" data-project-id="${escapeHtml(project.id)}" aria-label="Open ${escapeHtml(project.title)} project details">
           <div class="project-visual visual-${style}${project.image ? " has-image" : ""}">${visual}</div>
           <div class="project-meta"><div><p data-edit-path="projects.${projectIndex}.title">${escapeHtml(project.title)}</p><span data-edit-path="projects.${projectIndex}.subtitle">${escapeHtml(project.subtitle)}</span></div><span class="project-arrow">↗</span></div>
-        </button>
+        </a>
       </article>`;
   }).join("");
-
-  const dialog = document.querySelector(".project-dialog");
-  let lastTrigger = null;
-  grid.querySelectorAll("[data-project-id]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const projectIndex = projects.findIndex((item) => item.id === button.dataset.projectId);
-      const project = projects[projectIndex];
-      if (!project) return;
-      lastTrigger = button;
-      dialog.querySelector("[data-dialog-category]").textContent = project.categoryLabel;
-      dialog.querySelector("[data-dialog-title]").textContent = project.title;
-      dialog.querySelector("[data-dialog-summary]").textContent = project.summary;
-      dialog.querySelector("[data-dialog-scope]").textContent = project.scope;
-      dialog.querySelector("[data-dialog-status]").textContent = project.status;
-      dialog.querySelector("[data-dialog-note]").textContent = project.note;
-      const projectPath = `projects.${projectIndex}`;
-      setEditPath("[data-dialog-category]", `${projectPath}.categoryLabel`);
-      setEditPath("[data-dialog-title]", `${projectPath}.title`);
-      setEditPath("[data-dialog-summary]", `${projectPath}.summary`);
-      setEditPath("[data-dialog-scope]", `${projectPath}.scope`);
-      setEditPath("[data-dialog-status]", `${projectPath}.status`);
-      setEditPath("[data-dialog-note]", `${projectPath}.note`);
-      dialog.showModal();
-      document.body.classList.add("dialog-open");
-    });
-  });
-
-  const close = () => {
-    if (!dialog.open) return;
-    dialog.close();
-    document.body.classList.remove("dialog-open");
-    lastTrigger?.focus();
-  };
-  dialog.querySelector(".dialog-close").onclick = close;
-  dialog.onclick = (event) => { if (event.target === dialog) close(); };
-  dialog.oncancel = () => document.body.classList.remove("dialog-open");
 }
 
 function configureContact(contact) {
@@ -209,14 +193,14 @@ function configureContact(contact) {
   button.onclick = null;
   button.removeAttribute("target");
   button.removeAttribute("rel");
-  if (contact.email) {
-    button.href = `mailto:${contact.email}`;
-    return;
-  }
   if (contact.whatsappUrl) {
     button.href = contact.whatsappUrl;
     button.target = "_blank";
     button.rel = "noopener";
+    return;
+  }
+  if (contact.email) {
+    button.href = `mailto:${contact.email}`;
     return;
   }
   button.href = "#contact";

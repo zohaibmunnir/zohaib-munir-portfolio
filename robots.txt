@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /editor.html
+
+Sitemap: https://zohaibmunnir.github.io/zohaib-munir-portfolio/sitemap.xml

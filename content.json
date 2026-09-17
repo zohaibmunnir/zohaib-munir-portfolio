@@ -3,7 +3,7 @@
     "name": "Zohaib Munir",
     "monogram": "ZM",
     "role": "Graphic designer",
-    "location": "Gojra, Pakistan",
+    "location": "Gojra, Punjab, Pakistan",
     "pageTitle": "Zohaib Munir — Graphic Designer",
     "metaDescription": "Zohaib Munir is a graphic designer specializing in logo design, social media design, listing images, Amazon A+ content, and print media.",
     "paperColor": "#f2f0e9",
@@ -41,36 +41,68 @@
     "body": "My work spans brand marks, social content, e-commerce visuals, Amazon A+ modules, and print. I care about the idea behind the design, the details that make it feel professional, and the real context where people will see it."
   },
   "services": [
-    {
-      "title": "Logo Design",
-      "description": "Distinct, usable brand marks and identity direction."
-    },
-    {
-      "title": "Social Media Design",
-      "description": "Posts, campaigns, thumbnails, and content systems."
-    },
-    {
-      "title": "Listing Images",
-      "description": "Product visuals built for clarity and conversion."
-    },
-    {
-      "title": "Amazon A+ Content",
-      "description": "Structured brand storytelling for product pages."
-    },
-    {
-      "title": "Print Media",
-      "description": "Professional collateral prepared for production."
-    }
+    { "title": "Logo Design", "description": "Distinct, usable brand marks and identity direction." },
+    { "title": "Social Media Design", "description": "Posts, campaigns, thumbnails, and content systems." },
+    { "title": "Listing Images", "description": "Product visuals built for clarity and conversion." },
+    { "title": "Amazon A+ Content", "description": "Structured brand storytelling for product pages." },
+    { "title": "Print Media", "description": "Professional collateral prepared for production." }
   ],
   "contact": {
     "eyebrow": "Have a project in mind?",
     "title": "Let’s make it",
     "highlight": "worth noticing.",
-    "note": "Contact Me on WhatsApp",
-    "buttonLabel": "https://wa.me/923016940573",
-    "email": "",
-    "whatsappUrl": ""
+    "note": "Available for branding, social media, e-commerce, Amazon A+ content, and print design projects.",
+    "buttonLabel": "Message on WhatsApp",
+    "phone": "0301 6940573",
+    "phoneUrl": "tel:+923016940573",
+    "email": "zohaibmunnir@gmail.com",
+    "whatsappUrl": "https://wa.me/923016940573",
+    "linkedinUrl": "https://www.linkedin.com/in/zohaib-munir07/",
+    "location": "Gojra, Punjab, Pakistan",
+    "locationUrl": "https://www.google.com/maps/search/?api=1&query=Gojra%2C%20Punjab%2C%20Pakistan"
   },
+  "categories": [
+    {
+      "id": "logo",
+      "label": "Branding / Logo Design",
+      "title": "Branding and Logo Design",
+      "description": "Distinct, usable brand marks and identity systems designed for clear recognition and consistent application.",
+      "details": "Explore logo concepts, wordmarks, identity directions, and brand applications created for different industries.",
+      "gallery": []
+    },
+    {
+      "id": "social",
+      "label": "Social Media Design",
+      "title": "Social Media Design",
+      "description": "Posts, campaigns, thumbnails, and visual content systems designed for digital platforms.",
+      "details": "This category can include complete campaign sets, individual posts, stories, thumbnails, and platform-specific creative.",
+      "gallery": []
+    },
+    {
+      "id": "listing",
+      "label": "Listing Images",
+      "title": "Listing Images",
+      "description": "Product image systems built to explain features clearly and support conversion.",
+      "details": "This category can include hero images, feature graphics, comparison layouts, and supporting product visuals.",
+      "gallery": []
+    },
+    {
+      "id": "aplus",
+      "label": "Amazon A+ Content",
+      "title": "Amazon A+ Content",
+      "description": "Structured visual storytelling and branded modules for Amazon product pages.",
+      "details": "This category can include complete A+ module sets, Brand Story assets, and supporting product content.",
+      "gallery": []
+    },
+    {
+      "id": "print",
+      "label": "Print Design",
+      "title": "Print Design",
+      "description": "Professional print collateral prepared with clear hierarchy and production-aware layouts.",
+      "details": "This category can include business cards, posters, brochures, packaging, stationery, and other print applications.",
+      "gallery": []
+    }
+  ],
   "editorStyles": {
     "elements": {},
     "sections": {}
@@ -87,7 +119,17 @@
       "status": "Concept selected · Final portfolio artwork to add",
       "note": "Replace the website preview with the final Urban Crest artwork when ready.",
       "image": "",
-      "visualStyle": "urban"
+      "visualStyle": "urban",
+      "coverAlt": "Urban Crest brand identity project cover",
+      "fullDescription": "Urban Crest is a real-estate identity direction focused on combining architectural form with a confident, professional wordmark.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     },
     {
       "id": "zyro-wear",
@@ -100,7 +142,17 @@
       "status": "In development · Final artwork to add",
       "note": "Replace this typographic preview with approved Zyro Wear logo applications when ready.",
       "image": "",
-      "visualStyle": "zyro"
+      "visualStyle": "zyro",
+      "coverAlt": "Zyro Wear streetwear identity project cover",
+      "fullDescription": "Zyro Wear is a clothing and streetwear identity direction balancing bold character with a clean and usable brand system.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     },
     {
       "id": "iron-pulse",
@@ -113,7 +165,17 @@
       "status": "In development · Final artwork to add",
       "note": "Replace the temporary composition with the final Iron Pulse identity.",
       "image": "",
-      "visualStyle": "iron"
+      "visualStyle": "iron",
+      "coverAlt": "Iron Pulse fitness identity project cover",
+      "fullDescription": "Iron Pulse is a fitness identity direction designed to communicate strength, energy, control, and forward movement.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     },
     {
       "id": "social-system",
@@ -126,7 +188,17 @@
       "status": "Placeholder · Select final project",
       "note": "Add a real campaign here with its goal, formats, and finished visuals.",
       "image": "",
-      "visualStyle": "social"
+      "visualStyle": "social",
+      "coverAlt": "Social media campaign design project cover",
+      "fullDescription": "A case-study space for a coordinated social media campaign, including its goal, visual direction, formats, and final creative.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     },
     {
       "id": "thumbnails",
@@ -139,7 +211,17 @@
       "status": "Placeholder · Add selected artwork",
       "note": "Replace the preview frames with your strongest thumbnail designs.",
       "image": "",
-      "visualStyle": "thumbnail"
+      "visualStyle": "thumbnail",
+      "coverAlt": "High-impact thumbnail design series cover",
+      "fullDescription": "A case-study space for thumbnail work demonstrating visual hierarchy, clear storytelling, and attention-focused composition.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     },
     {
       "id": "listing-images",
@@ -152,7 +234,17 @@
       "status": "Placeholder · Product and artwork to add",
       "note": "Add real, authorized product imagery and final listing designs here.",
       "image": "",
-      "visualStyle": "listing"
+      "visualStyle": "listing",
+      "coverAlt": "Amazon product listing image set cover",
+      "fullDescription": "A case-study space for an Amazon product image system that keeps the product central while explaining benefits and features clearly.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     },
     {
       "id": "hair-oil",
@@ -165,7 +257,17 @@
       "status": "Project identified · Final artwork to add",
       "note": "Replace the botanical preview with the finished A+ modules.",
       "image": "",
-      "visualStyle": "aplus"
+      "visualStyle": "aplus",
+      "coverAlt": "Hair oil Amazon A+ content project cover",
+      "fullDescription": "A case-study space for the hair-oil Amazon A+ project, ready for final modules, product details, and design rationale.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     },
     {
       "id": "print-suite",
@@ -178,7 +280,17 @@
       "status": "Placeholder · Select final project",
       "note": "Replace the abstract mockups with finished print work.",
       "image": "",
-      "visualStyle": "print"
+      "visualStyle": "print",
+      "coverAlt": "Print collateral design suite cover",
+      "fullDescription": "A case-study space for coordinated print applications demonstrating hierarchy, production awareness, and brand consistency.",
+      "client": "",
+      "year": "",
+      "tools": [],
+      "colors": [],
+      "challenge": "",
+      "approach": "",
+      "outcome": "",
+      "gallery": []
     }
   ]
 }
