@@ -41,23 +41,42 @@
     "body": "My work spans brand marks, social content, e-commerce visuals, Amazon A+ modules, and print. I care about the idea behind the design, the details that make it feel professional, and the real context where people will see it."
   },
   "services": [
-    { "title": "Logo Design", "description": "Distinct, usable brand marks and identity direction." },
-    { "title": "Social Media Design", "description": "Posts, campaigns, thumbnails, and content systems." },
-    { "title": "Listing Images", "description": "Product visuals built for clarity and conversion." },
-    { "title": "Amazon A+ Content", "description": "Structured brand storytelling for product pages." },
-    { "title": "Print Media", "description": "Professional collateral prepared for production." }
+    {
+      "title": "Logo Design",
+      "description": "Distinct, usable brand marks and identity direction."
+    },
+    {
+      "title": "Social Media Design",
+      "description": "Posts, campaigns, thumbnails, and content systems."
+    },
+    {
+      "title": "Listing Images",
+      "description": "Product visuals built for clarity and conversion."
+    },
+    {
+      "title": "Amazon A+ Content",
+      "description": "Structured brand storytelling for product pages."
+    },
+    {
+      "title": "Print Media",
+      "description": "Professional collateral prepared for production."
+    }
   ],
   "contact": {
     "eyebrow": "Have a project in mind?",
     "title": "Let’s make it",
     "highlight": "worth noticing.",
-    "note": "Add your preferred email or WhatsApp link from the editing dashboard.",
-    "buttonLabel": "Copy project brief",
+    "note": "https://wa.me/923016940573",
+    "buttonLabel": "Contact Me on WhatsApp",
     "email": "",
     "whatsappUrl": ""
   },
   "editorStyles": {
-    "elements": {},
+    "elements": {
+      "contact.note": {
+        "fontSize": "16px"
+      }
+    },
     "sections": {}
   },
   "projects": [
