@@ -114,24 +114,76 @@
       "id": "urban-crest",
       "title": "Urban Crest",
       "category": "logo",
-      "categoryLabel": "Logo Design · Real Estate",
-      "subtitle": "Logo Design · Real Estate",
-      "summary": "A professional real-estate identity direction designed to bring the building form and wordmark together as one confident mark.",
-      "scope": "Logo concept · Wordmark direction · Brand application",
-      "status": "Concept selected · Final portfolio artwork to add",
-      "note": "Replace the website preview with the final Urban Crest artwork when ready.",
-      "image": "",
+      "categoryLabel": "Branding / Logo Design · Luxury Real Estate",
+      "subtitle": "Brand Identity · Luxury Real Estate",
+      "summary": "A premium identity concept for a global real-estate agency and property developer, designed to communicate architectural confidence, trust, and elevated living.",
+      "scope": "Logo Design · Brand Identity · Visual Direction · Real Estate Applications",
+      "status": "Completed self-initiated concept case study",
+      "note": "Urban Crest is an original self-initiated concept created for portfolio presentation; it is not presented as a commissioned client project.",
+      "image": "assets/urban-crest/urban-crest-cover.webp",
       "visualStyle": "urban",
-      "coverAlt": "Urban Crest brand identity project cover",
-      "fullDescription": "Urban Crest is a real-estate identity direction focused on combining architectural form with a confident, professional wordmark.",
-      "client": "",
-      "year": "",
-      "tools": [],
-      "colors": [],
-      "challenge": "",
-      "approach": "",
-      "outcome": "",
-      "gallery": []
+      "coverAlt": "Urban Crest luxury real estate identity presented against a premium architectural setting",
+      "fullDescription": "Urban Crest is a self-initiated brand identity concept for a modern luxury real-estate agency and property developer serving a location-neutral international market. The identity brings architectural linework and a refined wordmark together to create a confident visual presence for property sales, residential developments, and premium brand communications. The supporting line, ‘Elevated Living. Enduring Value.’, extends the idea across presentation and campaign applications.",
+      "client": "Self-Initiated Concept",
+      "year": "—",
+      "tools": [
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Canva"
+      ],
+      "colors": [
+        {
+          "name": "Deep Navy · #08265F",
+          "value": "#08265F"
+        },
+        {
+          "name": "Crest Gold · #B89545",
+          "value": "#B89545"
+        },
+        {
+          "name": "Warm Ivory · #F7F6F2",
+          "value": "#F7F6F2"
+        },
+        {
+          "name": "Charcoal · #141A24",
+          "value": "#141A24"
+        }
+      ],
+      "challenge": "Create one distinctive identity that could credibly represent both property buying and selling services and large-scale building or housing development, while remaining premium, modern, and internationally relevant.",
+      "approach": "Clean architectural lines and vertical forms suggest city growth, structure, and upward progress. Deep navy establishes trust and professional authority, while a restrained gold accent adds a premium, investment-focused character without making the system feel ornamental.",
+      "outcome": "The resulting identity adapts confidently across property signage, development hoardings, brochures, presentation materials, and digital brand touchpoints, giving Urban Crest a cohesive luxury-market presence without relying on a specific city or country.",
+      "gallery": [
+        {
+          "src": "assets/urban-crest/urban-crest-original-logo.webp",
+          "alt": "Original Urban Crest real estate logo in navy and gold on a white background",
+          "caption": "The original Urban Crest logo: an architectural wordmark developed for a premium real-estate agency and property developer."
+        },
+        {
+          "src": "assets/urban-crest/urban-crest-brand-palette.webp",
+          "alt": "Urban Crest brand palette showing deep navy, crest gold, warm ivory, and charcoal",
+          "caption": "A restrained luxury palette built around trust, architectural confidence, and enduring value."
+        },
+        {
+          "src": "assets/urban-crest/urban-crest-facade.webp",
+          "alt": "Urban Crest logo applied to a premium property sales gallery facade",
+          "caption": "Facade signage application for a premium property sales gallery or development entrance."
+        },
+        {
+          "src": "assets/urban-crest/urban-crest-brochure.webp",
+          "alt": "Urban Crest luxury real estate brochure mockup with navy and gold styling",
+          "caption": "Luxury property brochure direction featuring the supporting line, “Elevated Living. Enduring Value.”"
+        },
+        {
+          "src": "assets/urban-crest/urban-crest-hoarding.webp",
+          "alt": "Urban Crest identity on a residential property development hoarding",
+          "caption": "Development hoarding application designed for visibility at an international residential project."
+        },
+        {
+          "src": "assets/urban-crest/urban-crest-lobby.webp",
+          "alt": "Urban Crest logo displayed in a modern luxury real estate corporate lobby",
+          "caption": "Corporate lobby signage showing how the identity extends into a refined physical environment."
+        }
+      ]
     },
     {
       "id": "zyro-wear",
